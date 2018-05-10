@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.6
-Release  : 2
+Release  : 3
 URL      : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Source0  : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Summary  : No detailed summary available
