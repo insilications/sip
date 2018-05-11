@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.6
-Release  : 3
+Release  : 4
 URL      : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Source0  : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Summary  : No detailed summary available
@@ -44,3 +44,5 @@ rm -rf %{buildroot}
 /usr/lib/python3.6/site-packages/sip.so
 /usr/lib/python3.6/site-packages/sipconfig.py
 /usr/lib/python3.6/site-packages/sipdistutils.py
+%exclude /usr/lib/python3.6/site-packages/__pycache__/sipconfig.cpython-36.pyc
+%exclude /usr/lib/python3.6/site-packages/__pycache__/sipdistutils.cpython-36.pyc
