@@ -4,19 +4,68 @@
 #
 Name     : sip
 Version  : 4.19.6
-Release  : 5
+Release  : 6
 URL      : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Source0  : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.6/sip-4.19.6.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
+Requires: sip-bin
+Requires: sip-python3
+Requires: sip-license
+Requires: sip-python
 BuildRequires : python3
 BuildRequires : python3-dev
-Patch1: build.patch
+Patch1: 0001-Add-configure-to-generate-Makefile.patch
 
 %description
 SIP - C/C++ Bindings Generator for Python v2 and v3
 ===================================================
+
+%package bin
+Summary: bin components for the sip package.
+Group: Binaries
+Requires: sip-license
+
+%description bin
+bin components for the sip package.
+
+
+%package dev
+Summary: dev components for the sip package.
+Group: Development
+Requires: sip-bin
+Provides: sip-devel
+
+%description dev
+dev components for the sip package.
+
+
+%package license
+Summary: license components for the sip package.
+Group: Default
+
+%description license
+license components for the sip package.
+
+
+%package python
+Summary: python components for the sip package.
+Group: Default
+Requires: sip-python3
+
+%description python
+python components for the sip package.
+
+
+%package python3
+Summary: python3 components for the sip package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the sip package.
+
 
 %prep
 %setup -q -n sip-4.19.6
@@ -27,22 +76,37 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1515339488
-python3 configure.py
+export SOURCE_DATE_EPOCH=1531280795
+%configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1515339488
+export SOURCE_DATE_EPOCH=1531280795
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/sip
+cp LICENSE-GPL3 %{buildroot}/usr/share/doc/sip/LICENSE-GPL3
+cp LICENSE-GPL2 %{buildroot}/usr/share/doc/sip/LICENSE-GPL2
 %make_install
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
 /usr/bin/sip
-/usr/include/python3.6m/sip.h
-/usr/lib/python3.6/site-packages/sip.pyi
-/usr/lib/python3.6/site-packages/sip.so
-/usr/lib/python3.6/site-packages/sipconfig.py
-/usr/lib/python3.6/site-packages/sipdistutils.py
-%exclude /usr/lib/python3.6/site-packages/__pycache__/sipconfig.cpython-36.pyc
-%exclude /usr/lib/python3.6/site-packages/__pycache__/sipdistutils.cpython-36.pyc
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/python3.7m/sip.h
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/sip/LICENSE-GPL2
+/usr/share/doc/sip/LICENSE-GPL3
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*

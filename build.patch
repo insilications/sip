@@ -1,5 +1,0 @@
-diff -pruN sip-4.19.6.org/configure sip-4.19.6/configure
---- sip-4.19.6.org/configure	1970-01-01 00:00:00.000000000 +0000
-+++ sip-4.19.6/configure	2018-01-07 15:36:57.865068067 +0000
-@@ -0,0 +1 @@
-+python3 configure.py
