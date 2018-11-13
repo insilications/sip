@@ -1,3 +1,39 @@
+v4.19.13 1st October 2018
+  - Bug fixes.
+
+v4.19.12 8th July 2018
+  - Added the --no-module option to configure.py.
+  - Bug fixes.
+
+v4.19.11 2nd July 2018
+  - Added the /ScopesStripped/ argument annotation.
+  - Bug fixes.
+
+v4.19.10 24th June 2018
+  - A bug fix release fixing a serious regression in the code generator.
+
+v4.19.9 23rd June 2018
+  - The members of traditional C/C++ enums are now also visible within the
+    scope of the enum itself.  This means that members of scoped and unscoped
+    enums can be accessed in the same way from Python.
+  - A PEP 376 .dist-info directory is created on installation that provides
+    version information for dependent packages and allows pip to uninstall.
+  - Added the --no-dist-info option to configure.py.
+  - Private copies of the sip module are now easier to configure and use.  SIP
+    v5 will only support private copies.
+  - Added the -n option to the sip code generator to support private copies of
+    the sip module.
+  - Bug fixes.
+
+v4.19.8 26th February 2018
+  - Bug fixes.
+
+v4.19.7 23rd January 2018
+  - The %Docstring directive can now include automatically generated signature
+    descriptions using the "signature" option.
+  - typedefs can now have %Docstring directives.
+  - Bug fixes.
+
 v4.19.6 23rd November 2017
   - Bug fixes.
 
