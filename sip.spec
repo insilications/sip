@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.13
-Release  : 7
+Release  : 8
 URL      : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.13/sip-4.19.13.tar.gz
 Source0  : https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.13/sip-4.19.13.tar.gz
 Summary  : No detailed summary available
