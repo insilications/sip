@@ -17,6 +17,7 @@ Requires: sip-python3 = %{version}-%{release}
 BuildRequires : buildreq-configure
 BuildRequires : python3
 BuildRequires : python3-dev
+BuildRequires : qscintilla-dev
 Patch1: 0001-Add-configure-to-generate-Makefile.patch
 
 %description
