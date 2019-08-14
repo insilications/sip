@@ -14,7 +14,7 @@ index 0000000..4343a2b
 --- /dev/null
 +++ b/configure
 @@ -0,0 +1 @@
-+python3 configure.py
++python3 configure.py --sip-module PyQt5.sip
 -- 
 2.18.0
 

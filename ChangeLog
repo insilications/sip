@@ -1,4 +1,426 @@
+2019-07-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Released as v4.19.18.
+	[d750db0124aa] [4.19.18] <4.19-maint>
+
+2019-07-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[ef41d6f6ba52] <4.19-maint>
+
+2019-07-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* configure.py.in:
+	Removed a non-ASCII character.
+	[345665372f96] <4.19-maint>
+
+2019-06-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Don't try and acquire the GIL if the interpreter is no longer there.
+	[0339fda05a90] <4.19-maint>
+
+2019-06-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/array.c, siplib/descriptors.c, siplib/siplib.c,
+	siplib/voidptr.c:
+	Fixed warnings triggered by Python v3.8.
+	[79f89221765d] <4.19-maint>
+
+2019-06-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sphinx/introduction.rst.in:
+	Updated the docs regarding sip5.
+	[a9890af70254] <4.19-maint>
+
+2019-05-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* configure.py.in:
+	Check that the name of the private sip module is valid.
+	[57ec4f189c8f] <4.19-maint>
+
+	* siplib/sip.h.in:
+	Define SIP_NULLPTR as NULL (rather than 0) for older C++ compilers
+	so that the right sized zero gets passed to functions with variable
+	number of arguments (where the argument type isn't known).
+	[8e12736053f7] <4.19-maint>
+
+2019-05-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.17 for changeset 6bd401a26793
+	[1cb4f1190dc9] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.17.
+	[6bd401a26793] [4.19.17] <4.19-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[ed0d7dcc2f6d] <4.19-maint>
+
+2019-05-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Do not add the members of module-level scoped enums to the module
+	dict.
+	[7af121a0120a] <4.19-maint>
+
+2019-04-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.16 for changeset 0aac5d17136d
+	[0ab2a63314a5] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.16.
+	[0aac5d17136d] [4.19.16] <4.19-maint>
+
+2019-04-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[e10bb493d10b] <4.19-maint>
+
+2019-04-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/transform.c:
+	Further fixes for diamond class hierarchies.
+	[96fce123ab54] <4.19-maint>
+
+	* sipgen/gencode.c, sipgen/sip.h.in, sipgen/transform.c:
+	Don't cast to a class that occurs more than once in a super-class
+	hierarchy.
+	[9232c12ff0dc] <4.19-maint>
+
+2019-04-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* configure.py.in, specs/haiku-g++:
+	Added support for the haiku platform.
+	[a093d109d0de] <4.19-maint>
+
+2019-03-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Roadmap.rst, sphinx/introduction.rst.in:
+	Updated the docs and roadmap for SIP v5.
+	[04c93865d356] <4.19-maint>
+
+2019-03-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.15 for changeset bc42af3b0125
+	[1d00d28be4e6] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.15.
+	[bc42af3b0125] [4.19.15] <4.19-maint>
+
+2019-03-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[118ad726b35a] <4.19-maint>
+
+2019-02-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sphinx/directives.rst, sphinx/using.rst:
+	Added the section on writing %ConvertToSubClassCode to the docs.
+	[20205aee866c] <4.19-maint>
+
+2019-02-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/metasrc/parser.y:
+	Fixed the handling of size_t as a template argument.
+	[a86d8632daac] <4.19-maint>
+
+2019-02-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Restored the casting of an instance pointer to the base type of a
+	convertor before calling the convertor. This completes the rollback
+	to the v4.16 era of handling sub-class convertors.
+	[7d15fbe6bad8] <4.19-maint>
+
+	* siplib/siplib.c:
+	Backed out changeset 1427 (along with 1428) to select a convertor
+	based on whether the target is a sub-class of of the convertor's
+	base type. The changesets changed the selection to the left side
+	super-class.
+	[229047ed8c4f] <4.19-maint>
+
+	* siplib/siplib.c:
+	Backed out changset set 1428 as a pair with 1427.
+	[88fae7d57cc0] <4.19-maint>
+
+	* sipgen/gencode.c, sipgen/sip.h.in, sipgen/transform.c:
+	Fixed the handling of duplicate classes in an MRO so that the cast
+	function is correct with diamond shaped inheritance trees.
+	[b446501afb47] <4.19-maint>
+
+2019-02-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed a code generation regression specific to PyQt4.
+	[7bd4d19479ad] <4.19-maint>
+
+2019-02-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sphinx/riverbank/static/riverbank.css:
+	CSS updates.
+	[4ab117a13343] <4.19-maint>
+
+2019-02-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Fixed typos in the NEWS file.
+	[98a02040e6c5] <4.19-maint>
+
+2019-02-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.14 for changeset 910c0e9b6601
+	[0b8423eb79e3] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.14.
+	[910c0e9b6601] [4.19.14] <4.19-maint>
+
+	* sphinx/riverbank/static/riverbank.css:
+	CSS update.
+	[fa56644d81f1] <4.19-maint>
+
+2019-02-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Backed out the change to explicitly detach children in case this is
+	triggering crash-on-exit.
+	[60b57a0ebdc8] <4.19-maint>
+
+2019-02-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed the order of 'override' and 'throw' in generated code.
+	[387cb09328d1] <4.19-maint>
+
+2019-02-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Make sure arguments have names when /Transfer/ is used on a ctor
+	argument.
+	[2bd5d2b9e33d] <4.19-maint>
+
+	* sipgen/gencode.c, sipgen/metasrc/parser.y, sipgen/sip.h.in:
+	Fixed /Transfer/ for ctor arguments.
+	[94c1f3609597] <4.19-maint>
+
+	* sphinx/c_api.rst:
+	Fixed a documentation formatting error.
+	[92034f16282f] <4.19-maint>
+
+	* NEWS, siplib/siplib.c, sphinx/python_api.rst:
+	The reference count displayed by sip.dump() will always have the
+	same value as that returned by sys.getrefcount().
+	[5be2f9e1799d] <4.19-maint>
+
+2019-01-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sphinx/using.rst:
+	Removed a duplicate section rom the docs.
+	[8b91d7ce47b6] <4.19-maint>
+
+	* sphinx/riverbank/static/riverbank.css, sphinx/riverbank/theme.conf:
+	Updated the Sphinx theme and CSS from the latest PyQt docs.
+	[dadb078e28d1] <4.19-maint>
+
+2019-01-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Make sure an object's children are always detached before the object
+	is garbage collected.
+	[e3e4005c00e9] <4.19-maint>
+
+2019-01-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c, sipgen/metasrc/parser.y, sipgen/sip.h.in:
+	Added the PyQtFlagsEnums class annotation. Deprecated the PyQtFlags
+	class annotation.
+	[d8e417e4a032] <4.19-maint>
+
+2019-01-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c:
+	Enum member names in the XML extract are now fully qualified.
+	[9c1d63b0d55e] <4.19-maint>
+
+2019-01-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c:
+	Reverted to not distinguishing between Python slot sand functions in
+	the XML export.
+	[613986cac1ed] <4.19-maint>
+
+2019-01-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c, sipgen/gencode.c, sipgen/sip.h.in,
+	sipgen/transform.c:
+	Distinguish between Python slots (and __init__) in the XML export.
+	[994a87dfe848] <4.19-maint>
+
+2018-12-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c, sipgen/sip.h.in, sipgen/type_hints.c:
+	Don't include the package and module in the names of objects in the
+	XML export.
+	[a80a6c587377] <4.19-maint>
+
+2018-12-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, siplib/sip.h.in, sphinx/c_api.rst:
+	Documented the '=' format characters to sipBuildResult() and
+	sipParseResult().
+	[4d6b744960bf] <4.19-maint>
+
+2018-12-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipgen/gencode.c, siplib/int_convertors.c, siplib/sip.h.in,
+	siplib/sipint.h, siplib/siplib.c, sphinx/c_api.rst:
+	Completed the support for size_t including overflow checking.
+	[c1aeffa204c6] <4.19-maint>
+
+2018-12-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipgen/export.c, sipgen/gencode.c, sipgen/metasrc/lexer.l,
+	sipgen/metasrc/parser.y, sipgen/sip.h.in, sipgen/transform.c,
+	sipgen/type_hints.c, sphinx/specification_files.rst:
+	Added initial support for size_t (without overflow checking).
+	[942cfae8780c] <4.19-maint>
+
+	* METADATA.in:
+	Corrected the wheel meta-data version.
+	[049dad997cdb] <4.19-maint>
+
+2018-12-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c, sipgen/metasrc/parser.y, sipgen/sip.h.in:
+	Added support for {} as a default value.
+	[075a41789400] <4.19-maint>
+
+2018-12-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[e34c67990407] <4.19-maint>
+
+2018-12-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c:
+	Fixed the real name of anonymous enums in the XML export.
+	[ee31a3a49cf9] <4.19-maint>
+
+	* sipgen/export.c:
+	The XML export no longer generates a real name for slots.
+	[81326f0a3beb] <4.19-maint>
+
+	* sipgen/export.c:
+	The XML update now reports all objects with a different Python name.
+	[bb36a2ec5342] <4.19-maint>
+
+2018-12-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c, sipgen/gencode.c, sipgen/sip.h.in:
+	Generate the C/C++ signature in the XML extract.
+	[746a79f64eb5] <4.19-maint>
+
+2018-11-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c, sipgen/sip.h.in, sipgen/transform.c:
+	The XML export now handles reflected slots.
+	[46cae5681995] <4.19-maint>
+
+	* sipgen/sip.h.in:
+	Fixed member flags so that they don't overlap.
+	[b181b9a259ce] <4.19-maint>
+
+	* siplib/int_convertors.c, siplib/siplib.c:
+	Fixed the error handling when parsing an overflowing int argument.
+	[031599c9d24a] <4.19-maint>
+
+2018-11-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/export.c:
+	Fixed the export of return types with an empty type hint.
+	[fb60dbcb0ecc] <4.19-maint>
+
+2018-11-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Scoped enums are now sub-classes of IntEnum so that they will work
+	with PyQt's QFlags.
+	[3f116924ed0b] <4.19-maint>
+
+2018-11-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/sip.h.in, sipgen/type_hints.c:
+	Fixed the parsing of Callable type hints.
+	[3a19b41574e8] <4.19-maint>
+
+	* siplib/int_convertors.c:
+	Fixed a comment typo.
+	[07179de89adb] <4.19-maint>
+
+2018-10-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/metasrc/parser.y:
+	Removed an unused token from the parser.
+	[9f1678d0d472] <4.19-maint>
+
+2018-10-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/metasrc/parser.y:
+	Allow version qualifiers to appear in multiple timelines so that the
+	same timeline can be specified in multiple modules.
+	[7b0e287c0a24] <4.19-maint>
+
+	* sipgen/metasrc/parser.y:
+	Fixed the parser reduce/reduce conflict.
+	[964d54468066] <4.19-maint>
+
+2018-10-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Use SIP_OVERRIDE (based on a patch by Stefan Brüns).
+	[3ccc5b6f9e1f] <4.19-maint>
+
+	* sipgen/gencode.c, siplib/sip.h.in:
+	Eliminate GCC -Wcast-function-type warning messages. (Based on a
+	patch from Stefan Brüns.)
+	[8aa95da9fdf8] <4.19-maint>
+
+	* NEWS, sipgen/gencode.c, siplib/sip.h.in, sphinx/c_api.rst:
+	Implemented SIP_NULLPTR and updated the code generator to use it.
+	(Based on a patch from Stefan Brüns.)
+	[8d807e6b9037] <4.19-maint>
+
+2018-10-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Fixed a memory leak when returning a bytes object from a Python re-
+	implementation of a C++ virtual.
+	[d78b2af75c6e] <4.19-maint>
+
+2018-10-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* METADATA.in:
+	Fix the PyPI install instructions.
+	[9c0b9a39b5a0] <4.19-maint>
+
 2018-10-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.13 for changeset cefb1103ef73
+	[37cbe9d81d0d] <4.19-maint>
 
 	* NEWS:
 	Released as v4.19.13.

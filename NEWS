@@ -1,3 +1,25 @@
+v4.19.18 5th July 2019
+  - Bug fixes.
+
+v4.19.17 6th May 2019
+  - Bug fixes.
+
+v4.19.16 11th April 2019
+  - Added support for the Haiku platform.
+  - Bug fixes.
+
+v4.19.15 19th March 2019
+  - Bug fixes.
+
+v4.19.14 10th February 2019
+  - The reference count displayed by sip.dump() now has the same caveat as
+    sys.getrefcount().
+  - Added SIP_NULLPTR to the public API.
+  - Added support for size_t.
+  - Added sipLong_AsSizeT() to the C API.
+  - Added the '=' format characters to sipBuildResult() and sipParseResult().
+  - Bug fixes.
+
 v4.19.13 1st October 2018
   - Bug fixes.
 
