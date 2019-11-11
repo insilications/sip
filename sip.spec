@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.18
-Release  : 12
+Release  : 13
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.18/sip-4.19.18.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.18/sip-4.19.18.tar.gz
 Summary  : No detailed summary available
@@ -73,6 +73,7 @@ python3 components for the sip package.
 
 %prep
 %setup -q -n sip-4.19.18
+cd %{_builddir}/sip-4.19.18
 %patch1 -p1
 
 %build
@@ -80,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565805575
+export SOURCE_DATE_EPOCH=1573512168
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -90,11 +91,11 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1565805575
+export SOURCE_DATE_EPOCH=1573512168
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sip
-cp LICENSE-GPL2 %{buildroot}/usr/share/package-licenses/sip/LICENSE-GPL2
-cp LICENSE-GPL3 %{buildroot}/usr/share/package-licenses/sip/LICENSE-GPL3
+cp %{_builddir}/sip-4.19.18/LICENSE-GPL2 %{buildroot}/usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c
+cp %{_builddir}/sip-4.19.18/LICENSE-GPL3 %{buildroot}/usr/share/package-licenses/sip/34e9b06e7f12eaed676f57481de931ec91c6ce0a
 %make_install
 
 %files
@@ -106,12 +107,12 @@ cp LICENSE-GPL3 %{buildroot}/usr/share/package-licenses/sip/LICENSE-GPL3
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.7m/sip.h
+/usr/include/python3.8/sip.h
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/sip/LICENSE-GPL2
-/usr/share/package-licenses/sip/LICENSE-GPL3
+/usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c
+/usr/share/package-licenses/sip/34e9b06e7f12eaed676f57481de931ec91c6ce0a
 
 %files python
 %defattr(-,root,root,-)
