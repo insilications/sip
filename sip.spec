@@ -4,10 +4,10 @@
 #
 Name     : sip
 Version  : 4.19.20
-Release  : 16
+Release  : 17
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
-Summary  : No detailed summary available
+Summary  : A tool that makes it easy to create Python bindings for C and C++ libraries
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
 Requires: sip-bin = %{version}-%{release}
@@ -39,6 +39,7 @@ Summary: dev components for the sip package.
 Group: Development
 Requires: sip-bin = %{version}-%{release}
 Provides: sip-devel = %{version}-%{release}
+Requires: sip = %{version}-%{release}
 Requires: sip = %{version}-%{release}
 
 %description dev
@@ -81,7 +82,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1577735247
+export SOURCE_DATE_EPOCH=1582922032
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -91,7 +93,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1577735247
+export SOURCE_DATE_EPOCH=1582922032
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sip
 cp %{_builddir}/sip-4.19.20/LICENSE-GPL2 %{buildroot}/usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c
