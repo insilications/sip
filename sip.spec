@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.20
-Release  : 20
+Release  : 21
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Summary  : A tool that makes it easy to create Python bindings for C and C++ libraries
