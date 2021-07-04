@@ -1,6 +1,8 @@
 # This file contains recursive sources that require this package
 PyQt5
 QGIS
+QGIS-dev
 hplip
 openshot-qt
 qscintilla
+sip-dev
