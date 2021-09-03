@@ -5,15 +5,12 @@
 %define keepstatic 1
 Name     : sip
 Version  : 6.1.1
-Release  : 28
+Release  : 29
 URL      : https://files.pythonhosted.org/packages/f8/b2/fcd5e964eefce0737512fb4ea263308769c671c3b1b9b1e380a5008ffef0/sip-6.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f8/b2/fcd5e964eefce0737512fb4ea263308769c671c3b1b9b1e380a5008ffef0/sip-6.1.1.tar.gz
 Summary  : A Python bindings generator for C/C++ libraries
 Group    : Development/Tools
 License  : GPL-2.0 SIP
-Requires: sip-bin = %{version}-%{release}
-Requires: sip-python = %{version}-%{release}
-Requires: sip-python3 = %{version}-%{release}
 Requires: packaging
 Requires: toml
 BuildRequires : buildreq-distutils3
@@ -29,35 +26,6 @@ Patch1: 0001-Add-configure-to-generate-Makefile.patch
 SIP - A Python Bindings Generator for C and C++ Libraries
 =========================================================
 
-%package bin
-Summary: bin components for the sip package.
-Group: Binaries
-
-%description bin
-bin components for the sip package.
-
-
-%package python
-Summary: python components for the sip package.
-Group: Default
-Requires: sip-python3 = %{version}-%{release}
-
-%description python
-python components for the sip package.
-
-
-%package python3
-Summary: python3 components for the sip package.
-Group: Default
-Requires: python3-core
-Provides: pypi(sip)
-Requires: pypi(packaging)
-Requires: pypi(toml)
-
-%description python3
-python3 components for the sip package.
-
-
 %prep
 %setup -q -n sip-6.1.1
 cd %{_builddir}/sip-6.1.1
@@ -69,7 +37,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1625441972
+export SOURCE_DATE_EPOCH=1625442514
 export GCC_IGNORE_WERROR=1
 ## altflags1 content
 export CFLAGS="-g -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now -Wl,-z,relro -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=16 -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -pthread -static-libstdc++ -static-libgcc -Wl,--build-id=sha1"
@@ -159,19 +127,3 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files bin
-%defattr(-,root,root,-)
-/usr/bin/sip-build
-/usr/bin/sip-distinfo
-/usr/bin/sip-install
-/usr/bin/sip-module
-/usr/bin/sip-sdist
-/usr/bin/sip-wheel
-
-%files python
-%defattr(-,root,root,-)
-
-%files python3
-%defattr(-,root,root,-)
-/usr/lib/python3*/*
